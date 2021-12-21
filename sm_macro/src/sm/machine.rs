@@ -356,7 +356,6 @@ mod tests {
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 #[serde(crate = "sm::serde")]
-                #[serde(default = "Unlocked")]
                 pub struct Unlocked;
                 impl State for Unlocked {}
 
@@ -374,7 +373,6 @@ mod tests {
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 #[serde(crate = "sm::serde")]
-                #[serde(default = "Locked")]
                 pub struct Locked;
                 impl State for Locked {}
 
@@ -395,7 +393,6 @@ mod tests {
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 #[serde(crate = "sm::serde")]
-                #[serde(default = "Push")]
                 pub struct Push;
                 impl Event for Push {}
 
@@ -658,7 +655,6 @@ mod tests {
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 #[serde(crate = "sm::serde")]
-                #[serde(default = "Locked")]
                 pub struct Locked;
                 impl State for Locked {}
 
@@ -676,7 +672,6 @@ mod tests {
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 #[serde(crate = "sm::serde")]
-                #[serde(default = "Unlocked")]
                 pub struct Unlocked;
                 impl State for Unlocked {}
 
@@ -697,7 +692,6 @@ mod tests {
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 #[serde(crate = "sm::serde")]
-                #[serde(default = "Coin")]
                 pub struct Coin;
                 impl Event for Coin {}
 
@@ -715,7 +709,6 @@ mod tests {
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 #[serde(crate = "sm::serde")]
-                #[serde(default = "Push")]
                 pub struct Push;
                 impl Event for Push {}
 
@@ -819,7 +812,6 @@ mod tests {
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 #[serde(crate = "sm::serde")]
-                #[serde(default = "Locked")]
                 pub struct Locked;
                 impl State for Locked {}
 
@@ -837,7 +829,6 @@ mod tests {
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 #[serde(crate = "sm::serde")]
-                #[serde(default = "Unlocked")]
                 pub struct Unlocked;
                 impl State for Unlocked {}
 
@@ -858,7 +849,6 @@ mod tests {
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 #[serde(crate = "sm::serde")]
-                #[serde(default = "TurnKey")]
                 pub struct TurnKey;
                 impl Event for TurnKey {}
 

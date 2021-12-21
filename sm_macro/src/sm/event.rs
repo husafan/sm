@@ -52,12 +52,10 @@ impl Parse for Event {
 impl ToTokens for Event {
     fn to_tokens(&self, tokens: &mut TokenStream) {
         let name = &self.name;
-        let quoted_name = format!("{}", name);
 
         tokens.extend(quote! {
             #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
             #[serde(crate = "sm::serde")]
-            #[serde(default = #quoted_name)]
             pub struct #name;
             impl Event for #name {}
         });
@@ -89,7 +87,6 @@ mod tests {
         let left = quote! {
             #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
             #[serde(crate = "sm::serde")]
-            #[serde(default = "Push")]
             pub struct Push;
             impl Event for Push {}
         };
@@ -114,7 +111,6 @@ mod tests {
         let left = quote! {
             #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
             #[serde(crate = "sm::serde")]
-            #[serde(default = "Push")]
             pub struct Push;
             impl Event for Push {}
 
@@ -132,7 +128,6 @@ mod tests {
 
             #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
             #[serde(crate = "sm::serde")]
-            #[serde(default = "Coin")]
             pub struct Coin;
             impl Event for Coin {}
 
