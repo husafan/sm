@@ -144,9 +144,9 @@ impl ToTokens for Machine {
         tokens.extend(quote! {
             #[allow(non_snake_case)]
             mod #name {
-                use sm::{AsEnum, Event, InitialState, Initializer, Machine as M, NoneEvent, State, Transition};
+                use sm::{AsEnum, Event, InitialState, Initializer, Machine as M, NoneEvent, State, Transition, Serialize, Deserialize};
 
-                #[derive(Debug, Eq, PartialEq, Clone)]
+                #[derive(Debug, Eq, PartialEq, Clone, Serialize, Deserialize)]
                 pub struct Machine<S: State, E: Event>(S, Option<E>);
 
                 impl<S: State, E: Event> M for Machine<S, E> {
@@ -326,9 +326,9 @@ mod tests {
         let left = quote! {
             #[allow(non_snake_case)]
             mod TurnStile {
-                use sm::{AsEnum, Event, InitialState, Initializer, Machine as M, NoneEvent, State, Transition};
+                use sm::{AsEnum, Event, InitialState, Initializer, Machine as M, NoneEvent, State, Transition, Serialize, Deserialize};
 
-                #[derive(Debug, Eq, PartialEq, Clone)]
+                #[derive(Debug, Eq, PartialEq, Clone, Serialize, Deserialize)]
                 pub struct Machine<S: State, E: Event>(S, Option<E>);
 
                 impl<S: State, E: Event> M for Machine<S, E> {
@@ -352,7 +352,7 @@ mod tests {
                     }
                 }
 
-                #[derive(Clone, Copy, Debug, Eq)]
+                #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 pub struct Unlocked;
                 impl State for Unlocked {}
 
@@ -368,7 +368,7 @@ mod tests {
                     }
                 }
 
-                #[derive(Clone, Copy, Debug, Eq)]
+                #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 pub struct Locked;
                 impl State for Locked {}
 
@@ -387,7 +387,7 @@ mod tests {
                 impl InitialState for Unlocked {}
                 impl InitialState for Locked {}
 
-                #[derive(Clone, Copy, Debug, Eq)]
+                #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 pub struct Push;
                 impl Event for Push {}
 
@@ -621,9 +621,9 @@ mod tests {
 
             #[allow(non_snake_case)]
             mod TurnStile {
-                use sm::{AsEnum, Event, InitialState, Initializer, Machine as M, NoneEvent, State, Transition};
+                use sm::{AsEnum, Event, InitialState, Initializer, Machine as M, NoneEvent, State, Transition, Serialize, Deserialize};
 
-                #[derive(Debug, Eq, PartialEq, Clone)]
+                #[derive(Debug, Eq, PartialEq, Clone, Serialize, Deserialize)]
                 pub struct Machine<S: State, E: Event>(S, Option<E>);
 
                 impl<S: State, E: Event> M for Machine<S, E> {
@@ -647,7 +647,7 @@ mod tests {
                     }
                 }
 
-                #[derive(Clone, Copy, Debug, Eq)]
+                #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 pub struct Locked;
                 impl State for Locked {}
 
@@ -663,7 +663,7 @@ mod tests {
                     }
                 }
 
-                #[derive(Clone, Copy, Debug, Eq)]
+                #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 pub struct Unlocked;
                 impl State for Unlocked {}
 
@@ -682,7 +682,7 @@ mod tests {
                 impl InitialState for Locked {}
                 impl InitialState for Unlocked {}
 
-                #[derive(Clone, Copy, Debug, Eq)]
+                #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 pub struct Coin;
                 impl Event for Coin {}
 
@@ -698,7 +698,7 @@ mod tests {
                     }
                 }
 
-                #[derive(Clone, Copy, Debug, Eq)]
+                #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 pub struct Push;
                 impl Event for Push {}
 
@@ -773,9 +773,9 @@ mod tests {
 
             #[allow(non_snake_case)]
             mod Lock {
-                use sm::{AsEnum, Event, InitialState, Initializer, Machine as M, NoneEvent, State, Transition};
+                use sm::{AsEnum, Event, InitialState, Initializer, Machine as M, NoneEvent, State, Transition, Serialize, Deserialize};
 
-                #[derive(Debug, Eq, PartialEq, Clone)]
+                #[derive(Debug, Eq, PartialEq, Clone, Serialize, Deserialize)]
                 pub struct Machine<S: State, E: Event>(S, Option<E>);
 
                 impl<S: State, E: Event> M for Machine<S, E> {
@@ -799,7 +799,7 @@ mod tests {
                     }
                 }
 
-                #[derive(Clone, Copy, Debug, Eq)]
+                #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 pub struct Locked;
                 impl State for Locked {}
 
@@ -815,7 +815,7 @@ mod tests {
                     }
                 }
 
-                #[derive(Clone, Copy, Debug, Eq)]
+                #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 pub struct Unlocked;
                 impl State for Unlocked {}
 
@@ -834,7 +834,7 @@ mod tests {
                 impl InitialState for Locked {}
                 impl InitialState for Unlocked {}
 
-                #[derive(Clone, Copy, Debug, Eq)]
+                #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
                 pub struct TurnKey;
                 impl Event for TurnKey {}
 

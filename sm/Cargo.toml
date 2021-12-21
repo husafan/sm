@@ -12,6 +12,7 @@ exclude = ["examples"]
 edition = "2018"
 
 [dependencies]
+serde = "1.0.132"
 sm_macro = { version = "0.9", path = "../sm_macro", optional = true }
 
 [dev-dependencies]

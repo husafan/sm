@@ -522,6 +522,10 @@ use core::fmt;
 #[cfg(feature = "macro")]
 pub use sm_macro::sm;
 
+/// Re-export the serde Serialize and Deserialize derive macros.
+#[doc(hidden)]
+pub use ::serde::{Serialize, Deserialize};
+
 /// State is a custom [marker trait][m] that allows [unit-like structs][u] to be
 /// used as states in a state machine.
 ///

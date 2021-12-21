@@ -1,4 +1,4 @@
-extern crate sm;
+use ::sm::sm;
 
 #[derive(Clone, Copy, Debug)]
 struct HelloWorld;

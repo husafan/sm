@@ -54,7 +54,7 @@ impl ToTokens for Event {
         let name = &self.name;
 
         tokens.extend(quote! {
-            #[derive(Clone, Copy, Debug, Eq)]
+            #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
             pub struct #name;
             impl Event for #name {}
         });
@@ -84,7 +84,7 @@ mod tests {
         };
 
         let left = quote! {
-            #[derive(Clone, Copy, Debug, Eq)]
+            #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
             pub struct Push;
             impl Event for Push {}
         };
@@ -107,7 +107,7 @@ mod tests {
         ]);
 
         let left = quote! {
-            #[derive(Clone, Copy, Debug, Eq)]
+            #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
             pub struct Push;
             impl Event for Push {}
 
@@ -123,7 +123,7 @@ mod tests {
                 }
             }
 
-            #[derive(Clone, Copy, Debug, Eq)]
+            #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
             pub struct Coin;
             impl Event for Coin {}
 

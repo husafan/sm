@@ -64,7 +64,7 @@ impl ToTokens for State {
         let name = &self.name;
 
         tokens.extend(quote! {
-            #[derive(Clone, Copy, Debug, Eq)]
+            #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
             pub struct #name;
             impl State for #name {}
         });
@@ -94,7 +94,7 @@ mod tests {
         };
 
         let left = quote! {
-            #[derive(Clone, Copy, Debug, Eq)]
+            #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
             pub struct Unlocked;
             impl State for Unlocked {}
         };
@@ -117,7 +117,7 @@ mod tests {
         ]);
 
         let left = quote! {
-            #[derive(Clone, Copy, Debug, Eq)]
+            #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
             pub struct Locked;
             impl State for Locked {}
 
@@ -133,7 +133,7 @@ mod tests {
                 }
             }
 
-            #[derive(Clone, Copy, Debug, Eq)]
+            #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
             pub struct Unlocked;
             impl State for Unlocked {}
 

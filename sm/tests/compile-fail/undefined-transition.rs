@@ -1,5 +1,4 @@
 extern crate sm;
-use sm::sm;
 
 sm!{
     Lock {
