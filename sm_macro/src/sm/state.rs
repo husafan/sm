@@ -62,10 +62,12 @@ impl Parse for State {
 impl ToTokens for State {
     fn to_tokens(&self, tokens: &mut TokenStream) {
         let name = &self.name;
+        let quoted_name = format!("{}", name);
 
         tokens.extend(quote! {
             #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
             #[serde(crate = "sm::serde")]
+            #[serde(default = #quoted_name)]
             pub struct #name;
             impl State for #name {}
         });
@@ -97,6 +99,7 @@ mod tests {
         let left = quote! {
             #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
             #[serde(crate = "sm::serde")]
+            #[serde(default = "Unlocked")]
             pub struct Unlocked;
             impl State for Unlocked {}
         };
@@ -121,6 +124,7 @@ mod tests {
         let left = quote! {
             #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
             #[serde(crate = "sm::serde")]
+            #[serde(default = "Locked")]
             pub struct Locked;
             impl State for Locked {}
 
@@ -138,6 +142,7 @@ mod tests {
 
             #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
             #[serde(crate = "sm::serde")]
+            #[serde(default = "Unlocked")]
             pub struct Unlocked;
             impl State for Unlocked {}
 
