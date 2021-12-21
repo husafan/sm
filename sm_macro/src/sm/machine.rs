@@ -147,6 +147,7 @@ impl ToTokens for Machine {
                 use sm::{AsEnum, Event, InitialState, Initializer, Machine as M, NoneEvent, State, Transition, Serialize, Deserialize};
 
                 #[derive(Debug, Eq, PartialEq, Clone, Serialize, Deserialize)]
+                #[serde(crate = "sm::serde")]
                 pub struct Machine<S: State, E: Event>(S, Option<E>);
 
                 impl<S: State, E: Event> M for Machine<S, E> {
@@ -329,6 +330,7 @@ mod tests {
                 use sm::{AsEnum, Event, InitialState, Initializer, Machine as M, NoneEvent, State, Transition, Serialize, Deserialize};
 
                 #[derive(Debug, Eq, PartialEq, Clone, Serialize, Deserialize)]
+                #[serde(crate = "sm::serde")]
                 pub struct Machine<S: State, E: Event>(S, Option<E>);
 
                 impl<S: State, E: Event> M for Machine<S, E> {
@@ -353,6 +355,7 @@ mod tests {
                 }
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+                #[serde(crate = "sm::serde")]
                 pub struct Unlocked;
                 impl State for Unlocked {}
 
@@ -369,6 +372,7 @@ mod tests {
                 }
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+                #[serde(crate = "sm::serde")]
                 pub struct Locked;
                 impl State for Locked {}
 
@@ -388,6 +392,7 @@ mod tests {
                 impl InitialState for Locked {}
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+                #[serde(crate = "sm::serde")]
                 pub struct Push;
                 impl Event for Push {}
 
@@ -624,6 +629,7 @@ mod tests {
                 use sm::{AsEnum, Event, InitialState, Initializer, Machine as M, NoneEvent, State, Transition, Serialize, Deserialize};
 
                 #[derive(Debug, Eq, PartialEq, Clone, Serialize, Deserialize)]
+                #[serde(crate = "sm::serde")]
                 pub struct Machine<S: State, E: Event>(S, Option<E>);
 
                 impl<S: State, E: Event> M for Machine<S, E> {
@@ -648,6 +654,7 @@ mod tests {
                 }
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+                #[serde(crate = "sm::serde")]
                 pub struct Locked;
                 impl State for Locked {}
 
@@ -664,6 +671,7 @@ mod tests {
                 }
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+                #[serde(crate = "sm::serde")]
                 pub struct Unlocked;
                 impl State for Unlocked {}
 
@@ -683,6 +691,7 @@ mod tests {
                 impl InitialState for Unlocked {}
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+                #[serde(crate = "sm::serde")]
                 pub struct Coin;
                 impl Event for Coin {}
 
@@ -699,6 +708,7 @@ mod tests {
                 }
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+                #[serde(crate = "sm::serde")]
                 pub struct Push;
                 impl Event for Push {}
 
@@ -776,6 +786,7 @@ mod tests {
                 use sm::{AsEnum, Event, InitialState, Initializer, Machine as M, NoneEvent, State, Transition, Serialize, Deserialize};
 
                 #[derive(Debug, Eq, PartialEq, Clone, Serialize, Deserialize)]
+                #[serde(crate = "sm::serde")]
                 pub struct Machine<S: State, E: Event>(S, Option<E>);
 
                 impl<S: State, E: Event> M for Machine<S, E> {
@@ -800,6 +811,7 @@ mod tests {
                 }
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+                #[serde(crate = "sm::serde")]
                 pub struct Locked;
                 impl State for Locked {}
 
@@ -816,6 +828,7 @@ mod tests {
                 }
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+                #[serde(crate = "sm::serde")]
                 pub struct Unlocked;
                 impl State for Unlocked {}
 
@@ -835,6 +848,7 @@ mod tests {
                 impl InitialState for Unlocked {}
 
                 #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+                #[serde(crate = "sm::serde")]
                 pub struct TurnKey;
                 impl Event for TurnKey {}
 

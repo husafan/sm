@@ -65,6 +65,7 @@ impl ToTokens for State {
 
         tokens.extend(quote! {
             #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+            #[serde(crate = "sm::serde")]
             pub struct #name;
             impl State for #name {}
         });
@@ -95,6 +96,7 @@ mod tests {
 
         let left = quote! {
             #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+            #[serde(crate = "sm::serde")]
             pub struct Unlocked;
             impl State for Unlocked {}
         };
@@ -118,6 +120,7 @@ mod tests {
 
         let left = quote! {
             #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+            #[serde(crate = "sm::serde")]
             pub struct Locked;
             impl State for Locked {}
 
@@ -134,6 +137,7 @@ mod tests {
             }
 
             #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+            #[serde(crate = "sm::serde")]
             pub struct Unlocked;
             impl State for Unlocked {}
 

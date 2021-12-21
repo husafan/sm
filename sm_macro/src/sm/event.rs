@@ -55,6 +55,7 @@ impl ToTokens for Event {
 
         tokens.extend(quote! {
             #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+            #[serde(crate = "sm::serde")]
             pub struct #name;
             impl Event for #name {}
         });
@@ -85,6 +86,7 @@ mod tests {
 
         let left = quote! {
             #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+            #[serde(crate = "sm::serde")]
             pub struct Push;
             impl Event for Push {}
         };
@@ -108,6 +110,7 @@ mod tests {
 
         let left = quote! {
             #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+            #[serde(crate = "sm::serde")]
             pub struct Push;
             impl Event for Push {}
 
@@ -124,6 +127,7 @@ mod tests {
             }
 
             #[derive(Clone, Copy, Debug, Eq, Serialize, Deserialize)]
+            #[serde(crate = "sm::serde")]
             pub struct Coin;
             impl Event for Coin {}
 
